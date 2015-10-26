@@ -10,23 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-var FriendList_1 = require('./FriendList/FriendList');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.name = "Yannick";
-        this.names = ["Aarav", "Martín", "Shannon", "Ariana", "Kai"];
+var FriendList = (function () {
+    function FriendList() {
+        console.log(this.friends);
+        // this.name = "Yannick";
+        // this.names = ["Aarav", "Martín", "Shannon", "Ariana", "Kai"];
     }
-    AppComponent = __decorate([
+    FriendList = __decorate([
         angular2_1.Component({
-            selector: 'my-app'
+            selector: 'friend-list',
+            properties: ['friends'],
         }),
         angular2_1.View({
-            directives: [FriendList_1.FriendList],
-            template: "\n    <h1>My First Angular 2 App</h1>\n    <friend-list [friends]=\"names\"></friend-list>\n    "
+            directives: [angular2_1.CORE_DIRECTIVES],
+            template: "\n    <p>Friends of {{name}}:</p>\n    <ul>\n       <li *ng-for=\"#name of friends\">\n          {{ name }}\n       </li>\n    </ul>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], FriendList);
+    return FriendList;
 })();
-angular2_1.bootstrap(AppComponent);
-//# sourceMappingURL=app.js.map
+exports.FriendList = FriendList;
+//# sourceMappingURL=FriendList.js.map

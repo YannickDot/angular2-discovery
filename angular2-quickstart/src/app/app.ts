@@ -1,20 +1,15 @@
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
+import {FriendList} from './FriendList/FriendList';
 
 @Component({
     selector: 'my-app'
 })
 
 @View({
-  // templateUrl:
-  directives: [NgFor],
+  directives: [FriendList],
   template: `
     <h1>My First Angular 2 App</h1>
-    <p>Friends of {{name}}:</p>
-    <ul>
-       <li *ng-for="#name of names">
-          {{ name }}
-       </li>
-    </ul>
+    <friend-list [friends]="names"></friend-list>
     `
 })
 
