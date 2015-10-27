@@ -1,43 +1,32 @@
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
-import {FriendList} from './FriendList/FriendList';
-import {FriendsService, Person} from './FriendService/FriendService';
+// import { RouterOutlet, RouteConfig } from 'angular2/router';
+import { PageOne } from './PageOne/PageOne';
+import { PageTwo } from './PageTwo/PageTwo';
+
 
 @Component({
     selector: 'my-app',
-    providers: [FriendsService]
 })
 
 @View({
-  directives: [FriendList],
+  directives: [PageTwo, PageOne],
+  // directives: [RouterOutlet, PageTwo, PageOne],
   template: `
     <h1>My First Angular 2 App</h1>
-    <friend-list
-      [friends]="friends"
-      [ownername]="ownername"
-      [clickaction]="selectFriend"
-      [applyclass]="applyClass">
-    </friend-list>
+    <page-one></page-one>
+    <page-two></page-two>
     `
 })
 
+//
+// @RouteConfig([
+//   { path: '/', component: PageOne },
+//   { path: '/two', component: PageTwo }
+// ])
+
 class AppComponent {
-  ownername: string;
-  friends: Array<Person>;
+  constructor() {
 
-  constructor(friendsService: FriendsService) {
-    this.ownername = "Yannick";
-
-    friendsService.fetchFriends(600).then((friends) => {
-      this.friends = friends
-    })
-  }
-
-  selectFriend(v) {
-    console.log(v)
-  }
-
-  applyClass(person: Person) {
-    return { 'green' : person.name[0] === 'A'}
   }
 }
 
