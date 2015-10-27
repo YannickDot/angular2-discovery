@@ -14,7 +14,8 @@ import {FriendsService, Person} from './FriendService/FriendService';
     <friend-list
       [friends]="friends"
       [ownername]="ownername"
-      [clickaction]="selectFriend">
+      [clickaction]="selectFriend"
+      [applyclass]="applyClass">
     </friend-list>
     `
 })
@@ -33,6 +34,10 @@ class AppComponent {
 
   selectFriend(v) {
     console.log(v)
+  }
+
+  applyClass(person: Person) {
+    return { 'green' : person.name[0] === 'A'}
   }
 }
 

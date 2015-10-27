@@ -23,6 +23,9 @@ var AppComponent = (function () {
     AppComponent.prototype.selectFriend = function (v) {
         console.log(v);
     };
+    AppComponent.prototype.applyClass = function (person) {
+        return { 'green': person.name[0] === 'A' };
+    };
     AppComponent = __decorate([
         angular2_1.Component({
             selector: 'my-app',
@@ -30,7 +33,7 @@ var AppComponent = (function () {
         }),
         angular2_1.View({
             directives: [FriendList_1.FriendList],
-            template: "\n    <h1>My First Angular 2 App</h1>\n    <friend-list\n      [friends]=\"friends\"\n      [ownername]=\"ownername\"\n      [clickaction]=\"selectFriend\">\n    </friend-list>\n    "
+            template: "\n    <h1>My First Angular 2 App</h1>\n    <friend-list\n      [friends]=\"friends\"\n      [ownername]=\"ownername\"\n      [clickaction]=\"selectFriend\"\n      [applyclass]=\"applyClass\">\n    </friend-list>\n    "
         }), 
         __metadata('design:paramtypes', [FriendService_1.FriendsService])
     ], AppComponent);

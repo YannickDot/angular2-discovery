@@ -1,0 +1,8 @@
+<p class="title">Friends of {{ownername}} :</p>
+<ul class="friends">
+   <li *ng-for="#person of friends"
+       (click)="clickaction(person.name, $event)"
+       [ng-class]="applyclass(person)">
+      {{ person.name | friendTransform: 0 }}
+   </li>
+</ul>

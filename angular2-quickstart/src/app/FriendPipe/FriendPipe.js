@@ -10,24 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-var FriendPipe_1 = require('../FriendPipe/FriendPipe');
-var FriendList = (function () {
-    function FriendList() {
+var FriendPipe = (function () {
+    function FriendPipe() {
     }
-    FriendList = __decorate([
-        angular2_1.Component({
-            selector: 'friend-list',
-            properties: ['friends', 'ownername', 'clickaction', 'applyclass']
-        }),
-        angular2_1.View({
-            directives: [angular2_1.CORE_DIRECTIVES],
-            pipes: [FriendPipe_1.FriendPipe],
-            styleUrls: ['app/FriendList/friend-list.css'],
-            templateUrl: 'app/FriendList/friend-list.html',
+    FriendPipe.prototype.transform = function (value, args) {
+        return value + ' ' + args[0];
+    };
+    FriendPipe = __decorate([
+        angular2_1.Pipe({
+            name: 'friendTransform'
         }), 
         __metadata('design:paramtypes', [])
-    ], FriendList);
-    return FriendList;
+    ], FriendPipe);
+    return FriendPipe;
 })();
-exports.FriendList = FriendList;
-//# sourceMappingURL=FriendList.js.map
+exports.FriendPipe = FriendPipe;
+//# sourceMappingURL=FriendPipe.js.map
