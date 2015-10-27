@@ -11,20 +11,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var angular2_1 = require('angular2/angular2');
 var FriendList_1 = require('./FriendList/FriendList');
+var FriendService_1 = require('./FriendService/FriendService');
 var AppComponent = (function () {
-    function AppComponent() {
-        this.name = "Yannick";
-        this.names = ["Aarav", "Martín", "Shannon", "Ariana", "Kai"];
+    function AppComponent(friendsService) {
+        this.ownername = "Yannick";
+        this.friends = friendsService.names;
     }
+    AppComponent.prototype.selectFriend = function (v) {
+        console.log(v);
+    };
     AppComponent = __decorate([
         angular2_1.Component({
-            selector: 'my-app'
+            selector: 'my-app',
+            providers: [FriendService_1.FriendsService]
         }),
         angular2_1.View({
             directives: [FriendList_1.FriendList],
-            template: "\n    <h1>My First Angular 2 App</h1>\n    <friend-list [friends]=\"names\"></friend-list>\n    "
+            template: "\n    <h1>My First Angular 2 App</h1>\n    <friend-list\n      [friends]=\"friends\"\n      [ownername]=\"ownername\"\n      [clickaction]=\"selectFriend\">\n    </friend-list>\n    "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [FriendService_1.FriendsService])
     ], AppComponent);
     return AppComponent;
 })();

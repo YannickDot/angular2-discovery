@@ -12,18 +12,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var angular2_1 = require('angular2/angular2');
 var FriendList = (function () {
     function FriendList() {
-        console.log(this.friends);
-        // this.name = "Yannick";
-        // this.names = ["Aarav", "Martín", "Shannon", "Ariana", "Kai"];
     }
     FriendList = __decorate([
         angular2_1.Component({
             selector: 'friend-list',
-            properties: ['friends'],
+            properties: ['friends', 'ownername', 'clickaction'],
         }),
         angular2_1.View({
             directives: [angular2_1.CORE_DIRECTIVES],
-            template: "\n    <p>Friends of {{name}}:</p>\n    <ul>\n       <li *ng-for=\"#name of friends\">\n          {{ name }}\n       </li>\n    </ul>\n    "
+            template: "\n    <p>Friends of {{ownername}}:</p>\n    <ul>\n       <li *ng-for=\"#person of friends\" (click)=\"clickaction(person.name)\">\n          {{ person.name }}\n       </li>\n    </ul>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], FriendList);
