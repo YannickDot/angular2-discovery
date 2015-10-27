@@ -14,8 +14,11 @@ var FriendList_1 = require('./FriendList/FriendList');
 var FriendService_1 = require('./FriendService/FriendService');
 var AppComponent = (function () {
     function AppComponent(friendsService) {
+        var _this = this;
         this.ownername = "Yannick";
-        this.friends = friendsService.names;
+        friendsService.fetchFriends(600).then(function (friends) {
+            _this.friends = friends;
+        });
     }
     AppComponent.prototype.selectFriend = function (v) {
         console.log(v);

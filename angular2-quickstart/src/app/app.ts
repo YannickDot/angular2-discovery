@@ -25,7 +25,10 @@ class AppComponent {
 
   constructor(friendsService: FriendsService) {
     this.ownername = "Yannick";
-    this.friends = friendsService.names;
+
+    friendsService.fetchFriends(600).then((friends) => {
+      this.friends = friends
+    })
   }
 
   selectFriend(v) {

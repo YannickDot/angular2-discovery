@@ -2,10 +2,15 @@ import {Injectable} from 'angular2/angular2';
 
 // @Injectable()
 export class FriendsService {
-  names: Array<Person>;
-  constructor() {
-    var data = ["Alice", "Aarav", "Martín", "Shannon", "Ariana", "Kai"];
-    this.names = data.map(s => new Person(s));
+
+  fetchFriends(delay: number) {
+    var p = new Promise<Person[]>((resolve, reject) => {
+      setTimeout(function(){
+        resolve(["Alice", "Aarav", "Martín", "Shannon", "Ariana", "Kai"].map(s => new Person(s)));
+      }, delay);
+    })
+
+    return p;
   }
 }
 

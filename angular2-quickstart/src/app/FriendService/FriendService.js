@@ -1,9 +1,15 @@
 // @Injectable()
 var FriendsService = (function () {
     function FriendsService() {
-        var data = ["Alice", "Aarav", "Martín", "Shannon", "Ariana", "Kai"];
-        this.names = data.map(function (s) { return new Person(s); });
     }
+    FriendsService.prototype.fetchFriends = function (delay) {
+        var p = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve(["Alice", "Aarav", "Martín", "Shannon", "Ariana", "Kai"].map(function (s) { return new Person(s); }));
+            }, delay);
+        });
+        return p;
+    };
     return FriendsService;
 })();
 exports.FriendsService = FriendsService;
