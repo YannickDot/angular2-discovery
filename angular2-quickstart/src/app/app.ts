@@ -18,16 +18,11 @@ import { PageTwo } from './PageTwo/PageTwo';
     `
 })
 
-//
 // @RouteConfig([
-//   { path: '/', component: PageOne },
-//   { path: '/two', component: PageTwo }
+//   { path: '/', component: PageOne, as: 'page-one' },
+//   { path: '/two', component: PageTwo, as: 'page-two' }
 // ])
 
-class AppComponent {
-  constructor() {
-
-  }
-}
+class AppComponent {}
 
 bootstrap(AppComponent);

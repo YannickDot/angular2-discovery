@@ -1,0 +1,24 @@
+<input type="text" [(ng-model)]="cityName" placeholder="Type location ..." />
+<button (click)="getWeatherByCityName()"> Get weather </button>
+
+<div class="weather-info">
+    Name : {{ weatherData.name }}
+</div>
+<div class="weather-info">
+    Description : {{ weatherData.weather[0].description }}
+</div>
+<div class="weather-info">
+    Temperature : {{ kelvinToCelsius(weatherData.main.temp) }} °C
+</div>
+<div class="weather-info">
+    Humidity : {{ weatherData.main.humidity }} %
+</div>
+
+
+<a href="#/forecast">
+	<div class="nav-link" >
+		Go to forecast >
+	</div>
+</a>
+
+<button (click)="getWeatherByLocation()"> Get Weather where I am </button>

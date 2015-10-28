@@ -1,7 +1,15 @@
 import {Component, bootstrap} from 'angular2/angular2';
+import {Weather} from './Weather/Weather';
+
 @Component({
-    selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1>'
+  selector: 'my-app',
+  directives: [Weather],
+  template: `
+    <h1>Angular 2 Weather</h1>
+    <weather-component></weather-component>
+  `
 })
+
 class AppComponent { }
+
 bootstrap(AppComponent);
